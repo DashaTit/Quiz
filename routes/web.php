@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
+use App\Http\Middleware\AdminCheck;
+use App\Models\Subject;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +21,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
+
+Route::get("/subjects/show/{id}", [AdminController::class, 'showSubject']);
+
+Route::get('/admin', [AdminController::class, 'showAdmin'])->name('admin')->middleware(AdminCheck::class);
 
 Route::get('/registration', function () {
     return view('registration');
@@ -36,3 +44,5 @@ Route::post('auth/logout', [UserController::class, 'logout'])->name('logout');
 
 
 Route::post('auth/change', [UserController::class, 'change'])->name('change');
+
+Route::post('admin/add_subject', [AdminController::class, 'setSubject'])->name('add_subject');

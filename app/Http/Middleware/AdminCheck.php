@@ -15,6 +15,9 @@ class AdminCheck
      */
     public function handle(Request $request, Closure $next): Response
     {
+        if (!auth()->user() || auth()->user()->name != 'Admin' ) {
+            return redirect('/');
+        }
         return $next($request);
     }
 }

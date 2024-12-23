@@ -232,6 +232,21 @@ input[type="file"] {
     width: 540px;
 }
 
+.subject__form {
+    padding: 20px;
+    text-align: left;
+    border: 0;
+    outline: 0;
+    border-radius: 6px;
+    background-color: #f5f5ff;
+    font-size: 20px;
+    font-weight: 300;
+    color: #8d8d8d;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    margin-top: 16px;
+}
+
 /* user page  */
 .user__page {
     display: flex;
@@ -290,4 +305,117 @@ input[type="file"] {
 
 .info__line_title {
     font-weight: 600;
+}
+
+/* popup */
+
+.popup__bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    opacity: 0; 
+    pointer-events: none; 
+    transition: 0.5s all;
+}
+
+.popup__bg.active { 
+    opacity: 1; 
+    pointer-events: all; 
+    transition: 0.5s all;
+}
+
+.popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0); 
+    background: #fff;
+    width: 400px;
+    padding: 25px;
+    transition: 0.5s all;
+    border-radius: 10px;
+}
+
+.popup.active { 
+    transform: translate(-50%, -50%) scale(1); 
+    transition: 0.5s all;
+}
+
+.close-popup {
+    width: 20px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+/* admin panel */
+.admin__panel {
+    margin-top: 60px;
+    display: flex;
+    gap: 100px;
+}
+
+.admin__panel_sidebar {
+    padding: 30px;
+    background-color: #c8c8ff;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.admin__panel_link {
+    font-size: 24px;
+    color: black;
+
+    transition: all 0.3s;
+}
+
+.admin__panel_link:hover {
+    color: #4141de;
+    cursor: pointer;
+}
+
+.create__subject {
+    background-color: #5152e0;
+    font-size: 24px;
+    color: #f5f5ff;
+    padding: 10px 30px;
+    border-radius: 10px;
+    border: none;
+    overlay: none;
+    transition: all 0.3s;
+}
+
+.create__subject:hover {
+    background-color: #3435db;
+    cursor: pointer;
+}
+
+.admin__panel_main {
+    margin-top: 30px;
+}
+
+.admin__panel_main h1, .subject_title {
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 40px;
+}
+
+.subject_title {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.subjects__list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.subject__name {
+    font-size: 20px;
 }
